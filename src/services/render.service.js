@@ -9,8 +9,8 @@
  * - full_name
  * 4. Use JS to set CSS 'visibility' property to 'visible'
  */
-const resultsList = document.querySelector("#repo-search-term");
-const resultsH2Span = document.querySelector("#results h2");
+const resultsList = document.querySelector("#results ul");
+const resultsH2Span = document.querySelector("#repo-search-term");
 
 function renderRepo(repo) {
   const li = document.createElement("li");
@@ -30,6 +30,6 @@ export default {
   renderRepos(username, repos) {
     resultsH2Span.innerText = username;
 
-    repos.forEach((repo) => {});
+    repos.forEach(renderRepo);
   },
 };
