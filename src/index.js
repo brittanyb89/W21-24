@@ -18,3 +18,11 @@ document.querySelector("form").addEventListener("submit", async (event) => {
 
   console.log(data);
 });
+
+document.getElementById("topics").addEventListener("click", async (event) => {
+  // with event bubbling we can listen to the parent element and get the target element from the event Object. Let's make sure we only listen to the buttons.
+  if (event.target.tagName === "BUTTON") {
+    const topic = event.target.innerText.toLowerCase(); // textContent and innerText are used interchangeably.
+    const data = await apiService.getReposByUsername(topic);
+  }
+});
