@@ -3,16 +3,18 @@
  * If it's a 'default' export, no need to use curly braces.
  */
 // can import any name you want
-import mickeyMouse from "./services/api.service";
-
-console.log(mickeyMouse.sayHello());
+import apiService from "./services/api.service";
 
 document.querySelectorAll("button").forEach((button) => {
   button.classList.add("button");
 });
 
-document.querySelector("form").addEventListener("submit", (event) => {
+document.querySelector("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const username = event.target.username.value;
+
+  const data = await apiService.getReposByUsername(username);
+
+  console.log(data);
 });

@@ -17,6 +17,8 @@ const BASE_URL = "http://api.github.com";
 // exporting objects
 export default {
   getIssuesResponse(repoName) {
+    // nothing to await, just return the promise
+    // whoever calls this will await it
     return fetch(`${BASE_URL}/repos/${repoName}/issues?direction=asc`);
   },
 
@@ -24,6 +26,7 @@ export default {
     const response = await fetch(
       `${BASE_URL}/search/repositories?q=${topic}+is:featured&sort=help-wanted-issues`
     );
+    // this promise iwll need to be awaited by the caller
     return response.json();
   },
 
