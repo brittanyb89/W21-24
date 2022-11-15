@@ -9,3 +9,13 @@
  * - full_name
  * 4. Use JS to set CSS 'visibility' property to 'visible'
  */
+const resultsList = document.querySelector("#repo-search-term");
+const resultsH2Span = document.querySelector("#results h2");
+
+export default {
+  // render service do not talk directly to api service
+  // gotta tell what repo to render, set parameters
+  renderRepos(username, repos) {
+    resultsH2Span.innerText = username;
+  },
+};
