@@ -25,7 +25,5 @@ document.getElementById("topics").addEventListener("click", async (event) => {
   if (event.target.tagName === "BUTTON") {
     const topic = event.target.innerText.toLowerCase(); // textContent and innerText are used interchangeably.
     const data = await apiService.getReposByUsername(topic);
-
-    console.log(data);
   }
 });
